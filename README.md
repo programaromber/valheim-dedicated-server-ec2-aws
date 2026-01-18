@@ -44,6 +44,10 @@ steamcmd +force_install_dir /home/ubuntu/Steam +login anonymous +app_update 8966
 Raiz da pasta: /home/ubuntu/Steam
 https://steamcommunity.com/sharedfiles/filedetails/?id=2383801614
 
+Pasta do mundo no linux
+ cd /home/ubuntu/.config/unity3d/IronGate/Valheim
+
+
 baixar mundo do drive
 
 sudo apt install python3-pip -y
