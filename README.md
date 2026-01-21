@@ -1,12 +1,23 @@
-# valheim-dedicated-server-ec2-aws
+# valheim-worlds-backup
 Como criar um servidor dedicado do valheim na aws
+
+Requisitos:
+- Conta AWS
+- Máquina virtual linux (Ubuntu, mais barata)
+
 
 ## AWS EC2
 Primeiro passo é criar a instancia ec2 na aws seguindo esse tutorial:
 - https://www.youtube.com/watch?v=ZkLAz8zrKjM
 - Lembrar de  criar a sua credencial putty para acessar o console
 
-# Configuração da máquina Ubuntu
+## Criar instancia UBUNTU
+- t3.medium
+- 8GB SSD
+- Criar uma Security Group com regras TCP e UDP nas portas `2456-2458` (Portal do server)
+- Após fazer a criação e execução da instancia você precisa configurar o servidor no ubunto.
+
+## Configuração da máquina Ubuntu
 Comandos:
 ```
 sudo apt update
@@ -28,11 +39,23 @@ vim my_start_server.sh
 ./my_start_server.sh
 ```
 
-Pasta do mundo no linux
- cd /home/ubuntu/.config/unity3d/IronGate/Valheim
+## Restaurar Backup
 
+Pasta do mundo no linux:
+```
+cd /home/ubuntu/.config/unity3d/IronGate/Valheim
+git clone https://github.com/programaromber/valheim-worlds-backup.git
+cd valheim-worlds-backup
+```
+
+Copiar os arquivos do mundo para a pasta destino:
+```
+cp [nome_arquivo] ../
+```
+- Repetir para cada arquivo.
 
 # Backup
+
 Comandos:
 ```
 cd /home/ubuntu/.config/unity3d/IronGate/Valheim/worlds_local
