@@ -16,9 +16,9 @@ Type=simple
 # Substitua 'ubuntu' pelo seu usuário do sistema
 User=ubuntu
 # Coloque o caminho completo para a pasta onde está o script
-WorkingDirectory=/home/ubuntu/valheim_server
+WorkingDirectory=/home/ubuntu/Steam
 # Coloque o caminho completo para o arquivo .sh
-ExecStart=/bin/bash /home/ubuntu/valheim_server/my_server.sh
+ExecStart=/bin/bash /home/ubuntu/Steam/my_server.sh
 Restart=on-failure
 RestartSec=10
 KillSignal=SIGINT
@@ -33,22 +33,40 @@ Dica Importante: Certifique-se de que o seu arquivo my_server.sh tenha permissã
 Agora, você precisa avisar o sistema que um novo serviço foi criado e habilitá-lo para o boot:
 
 Recarregar o systemd:
-
-Bash: sudo systemctl daemon-reload
+```
+sudo systemctl daemon-reload
+```
 
 Habilitar a inicialização automática:
-
-Bash: sudo systemctl enable valheim.service
+```
+sudo systemctl enable valheim.service
+```
 
 Iniciar o servidor agora:
-
-Bash: sudo systemctl start valheim.service
+```
+sudo systemctl start valheim.service
+```
 
 4. Comandos Úteis de Gerenciamento
+
 Agora que o Valheim é um serviço do sistema, você pode controlá-lo facilmente:
-Ver status (se está online ou se deu erro): sudo systemctl status valheim.service
-Parar o servidor: sudo systemctl stop valheim.service
 
-Reiniciar o servidor: sudo systemctl restart valheim.service
+Ver status (se está online ou se deu erro):
+```
+sudo systemctl status valheim.service
+```
 
-Ver os logs em tempo real: journalctl -u valheim.service -f
+Parar o servidor: 
+```
+sudo systemctl stop valheim.service
+```
+
+Reiniciar o servidor: 
+```
+sudo systemctl restart valheim.service
+```
+
+Ver os logs em tempo real: 
+```
+journalctl -u valheim.service -f
+```
